@@ -92,7 +92,7 @@ VAR
 		pv: @(PREFIX):LPS:MASTER_OVERRIDE
 		io: o
 	'}
-	bMasterOverride : BOOL; // Master override control for safety system.
+	bMasterOverride : BOOL := TRUE; // Master override control for safety system.
 	
 	{attribute 'pytmc' := '
 		pv: @(PREFIX):LPS:MASTER_AMP_SHUTTER
