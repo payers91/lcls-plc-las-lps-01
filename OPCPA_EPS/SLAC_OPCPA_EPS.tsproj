@@ -2,24 +2,6 @@
 <TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.12" TcVersionFixed="true">
 	<DataTypes>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-000000000041}" TcBaseType="true" HideSubItems="true" CName="AmsNetId">AMSNETID</Name>
-			<BitSize>48</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>6</Elements>
-			</ArrayInfo>
-			<Format>
-				<Printf>%d.%d.%d.%d.%d.%d</Printf>
-				<Parameter>[0]</Parameter>
-				<Parameter>[1]</Parameter>
-				<Parameter>[2]</Parameter>
-				<Parameter>[3]</Parameter>
-				<Parameter>[4]</Parameter>
-				<Parameter>[5]</Parameter>
-			</Format>
-		</DataType>
-		<DataType>
 			<Name GUID="{5BEACB64-8490-46B4-B636-A0EB00630394}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_KL6inData22B</Name>
 			<BitSize>192</BitSize>
 			<SubItem>
@@ -43,6 +25,24 @@
 					<Name>hide</Name>
 				</Property>
 			</Properties>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000000000041}" TcBaseType="true" HideSubItems="true" CName="AmsNetId">AMSNETID</Name>
+			<BitSize>48</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+			<Format>
+				<Printf>%d.%d.%d.%d.%d.%d</Printf>
+				<Parameter>[0]</Parameter>
+				<Parameter>[1]</Parameter>
+				<Parameter>[2]</Parameter>
+				<Parameter>[3]</Parameter>
+				<Parameter>[4]</Parameter>
+				<Parameter>[5]</Parameter>
+			</Format>
 		</DataType>
 		<DataType>
 			<Name GUID="{D72E440E-12A0-4086-B4FC-D1D2B451986C}" Namespace="Tc2_ModbusRTU" AutoDeleteType="true">MB_KL6outData22B</Name>
@@ -230,9 +230,8 @@
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>GVL_IO.bAmphosOn</Name>
-							<Comment><![CDATA[ Ch1]]></Comment>
-							<Type>BOOL</Type>
+							<Name>MAIN.fbTraceTekModbus.fbModbusMaster.InData</Name>
+							<Type GUID="{5BEACB64-8490-46B4-B636-A0EB00630394}" Namespace="Tc2_ModbusRTU">MB_KL6inData22B</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.nOpcpaVoltageRaw</Name>
@@ -247,6 +246,11 @@
 							<Name>GVL_IO.nAmphosVoltageRaw</Name>
 							<Comment><![CDATA[ Ch2]]></Comment>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>GVL_IO.bAmphosOn</Name>
+							<Comment><![CDATA[ Ch1]]></Comment>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL_IO.bLeakDetected</Name>
@@ -288,13 +292,13 @@
 							<Comment><![CDATA[ Ch1]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
-						<Var>
-							<Name>MAIN.fbTraceTekModbus.fbModbusMaster.InData</Name>
-							<Type GUID="{5BEACB64-8490-46B4-B636-A0EB00630394}" Namespace="Tc2_ModbusRTU">MB_KL6inData22B</Type>
-						</Var>
 					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>MAIN.fbTraceTekModbus.fbModbusMaster.OutData</Name>
+							<Type GUID="{D72E440E-12A0-4086-B4FC-D1D2B451986C}" Namespace="Tc2_ModbusRTU">MB_KL6outData22B</Type>
+						</Var>
 						<Var>
 							<Name>GVL_IO.bAmphosShutterEnable</Name>
 							<Comment><![CDATA[ Ch1]]></Comment>
@@ -327,10 +331,6 @@
 						<Var>
 							<Name>GVL_IO.bCarbideShutterEnableManualOperation</Name>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN.fbTraceTekModbus.fbModbusMaster.OutData</Name>
-							<Type GUID="{D72E440E-12A0-4086-B4FC-D1D2B451986C}" Namespace="Tc2_ModbusRTU">MB_KL6outData22B</Type>
 						</Var>
 					</Vars>
 					<Contexts>
